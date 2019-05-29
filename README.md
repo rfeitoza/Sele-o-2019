@@ -30,6 +30,8 @@ Criar um microsserviço utilizando arquitetura REST em linguagem de programaçã
 
 ## Como foi realizado:
 - Utilizado o banco de dados H2.
-- Os modelos de dados estão localizados em: `/src/main/model`
-- Teste estão localizados em: `/src/test`
-- Especificação da API com swagger (arquivo .yaml), localizado em: `/src/main/swagger` 
+- Maven.
+- Spring Boot 2.1.5.
+- Spring MVC.
+- JPA.
+
