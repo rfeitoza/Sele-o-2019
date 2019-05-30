@@ -34,4 +34,7 @@ Criar um microsserviço utilizando arquitetura REST em linguagem de programaçã
 - Spring Boot 2.1.5.
 - Spring MVC.
 - JPA.
+- Swagger 2.0
+- Para acessar a documentação de api http://localhost:8080/doc/index.html#/
+- Os modelos de dados se encontram no diretório /seleção2019/Documentos
 
