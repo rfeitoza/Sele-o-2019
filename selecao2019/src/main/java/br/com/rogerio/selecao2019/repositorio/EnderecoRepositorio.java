@@ -14,6 +14,7 @@ public interface EnderecoRepositorio extends JpaRepository<Endereco, Long> {
 
     @Query(value = "SELECT distinct p " +
             "FROM Endereco e " +
-            "join e.pessoas p")
+            "join e.pessoas p " +
+            "WHERE e.id = :id")
     List<Pessoa> buscarMoradores(@Param("id") Long id);
 }

@@ -44,13 +44,8 @@ public class EnderecoServico {
 
 
     public ResponseEntity<Endereco> salvarOuEditar(Endereco endereco) {
-        HttpStatus httpStatus = HttpStatus.OK;
-        try{
-            endereco = enderecoRepositorio.save(endereco);
-        }catch (Exception e){
-            httpStatus = httpStatus.BAD_REQUEST;
-        }
-        return new ResponseEntity<>(endereco, httpStatus);
+        endereco = enderecoRepositorio.save(endereco);
+        return ResponseEntity.ok(endereco);
     }
 
     public ResponseEntity<List<Pessoa>> buscarMoradores(Long id) {

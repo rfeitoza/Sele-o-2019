@@ -1,5 +1,7 @@
 package br.com.rogerio.selecao2019.dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,6 +30,7 @@ public class Endereco {
     private String pais;
 
     @OneToMany(mappedBy = "endereco")
+    @JsonIgnore
     private List<Pessoa> pessoas;
 
 
