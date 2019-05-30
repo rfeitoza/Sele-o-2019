@@ -1,0 +1,285 @@
+swagger: '2.0'
+info:
+  description: "Seleção 2019, api para microserviços de pessoas e endereços"
+  version: "1.0.0"
+  title: "Seleção 2019"
+host: "localhost:8080"
+basePath: "/"
+tags:
+- name: "endereco"
+  description: "Api de endereço"
+- name: "pessoa"
+  description: "Api de pessoa"
+schemes:
+- "http"
+definitions:
+  Endereco:
+    type: object
+    properties:
+      id:
+        type: number
+        format: Long
+      cep:
+        type: string
+      uf:
+        type: string
+      numero:
+        type: string
+      logradouro:
+        type: string
+      municipio:
+        type: string
+      bairro:
+        type: string
+      pais:
+        type: string
+  Pessoa:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: Long
+      nome:
+        type: string
+      rg:
+        type: string
+      cpf:
+        type: string
+      telefone:
+        type: string
+      endereco:
+        $ref: "#/definitions/Endereco"
+paths:
+  /endereco/salvar:
+    post:
+      tags:
+      - "endereco"
+      summary: "Salva um novo Endereço"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Endereço a ser salvo"
+        required: true
+        schema:
+          $ref: "#/definitions/Endereco"
+    put:
+      tags:
+      - "endereco"
+      summary: "Edita um Endereço"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Endereço a ser editado"
+        required: true
+        schema:
+          $ref: "#/definitions/Endereco"
+
+  /endereco/deletar/{id}:
+    delete:
+      tags:
+      - "endereco"
+      summary: "Exclui um endereço"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Chave primaria de endereço"
+        required: true
+        type: "integer"
+        format: "Long"
+
+  /endereco/buscar-todos-enderecos/:
+    get:
+      tags:
+      - "endereco"
+      summary: "Busca todos os endereços"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+
+  /endereco/buscar-enderecos/{id}:
+    get:
+      tags:
+      - "endereco"
+      summary: "Busca o endereço por id"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Chave primaria de endereço"
+        required: true
+        type: "integer"
+        format: "Long"
+
+  /endereco/buscar-moradores/{id}:
+    get:
+      tags:
+      - "endereco"
+      summary: "Busca os moradores por endereço"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Chave primaria de endereço"
+        required: true
+        type: "integer"
+        format: "Long"
+
+  /pessoa/salvar :
+    post:
+      tags:
+      - "pessoa"
+      summary: "Salva uma nova Pessoa"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pessoa a ser salva"
+        required: true
+        schema:
+          $ref: "#/definitions/Pessoa"
+    put:
+      tags:
+      - "pessoa"
+      summary: "Edita uma Pessoa"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pessoa a ser Editada"
+        required: true
+        schema:
+          $ref: "#/definitions/Pessoa"
+  /pessoa/deletar/{id}:
+    delete:
+      tags:
+      - "pessoa"
+      summary: "Exclui uma pessoa"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Chave primaria de pessoa"
+        required: true
+        type: "integer"
+        format: "Long"
+
+  /pessoa/buscar-todas-pessoas/:
+    get:
+      tags:
+      - "pessoa"
+      summary: "Busca todas os pessoas"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+
+  /pessoa/buscar-pessoa/{id}:
+    get:
+      tags:
+      - "pessoa"
+      summary: "Busca a pessoa por id"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+        500:
+          description: BAD REQUEST
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Chave primaria de pessoa"
+        required: true
+        type: "integer"
+        format: "Long"
