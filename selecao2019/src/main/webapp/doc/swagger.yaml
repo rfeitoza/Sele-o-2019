@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: "Seleção 2019, api para microserviços de pessoas e endereços"
+  description: "Seleção 2019, api para microsserviços de pessoas e endereços"
   version: "1.0.0"
   title: "Seleção 2019"
 host: "localhost:8080"
